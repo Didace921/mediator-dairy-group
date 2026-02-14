@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Mediator Dairy Group - Vision</title>
+   
+    <link rel="icon" type="image/png" href="Mediator.png">
+    <style>
+        html {
+            height: 100%; 
+        }
+
+        body {
+        
+            background-image: url('haso.png');
+
+            
+            background-size: cover;
+
+           
+            background-repeat: no-repeat;
+            background-position: center;
+
+            background-attachment: fixed;
+            margin: 0;
+            font-family: sans-serif; 
+            color: white; 
+
+            min-height: 100%; 
+            display: flex; 
+            flex-direction: column; 
+        }
+        header {
+            background-color: #f1f0eb; 
+            padding: 15px 30px;
+            display: flex;
+            height: 170px;
+
+            justify-content: space-between; 
+            align-items: center; 
+            position: relative;
+        }
+        .logo {
+                    }
+
+        .logo img {
+            height: 120px; 
+            width: auto;
+        }
+
+        .company-name {
+            
+            position: absolute;
+            top: 15px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+
+            font-family: 'Lobster', cursive; 
+            font-size: 2.8em; 
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+            margin: 0; 
+        }
+
+        .logo-img {
+            list-style: none; 
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            
+            position: absolute;
+            bottom: 20px; 
+            right: 30px; 
+                }
+
+        nav ul li {
+            display: inline-block; 
+            margin-left: 25px; 
+        }
+
+        nav ul li a {
+            color: rgb(163, 74, 74);
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 5px;
+            transition: color 0.3s; 
+        }
+
+        nav ul li a i {
+            margin-right: 8px;
+        }
+
+        nav ul li a:hover {
+            color: #ddd; 
+        }
+       
+        main {
+            flex-grow: 1;
+            padding: 20px; 
+        }
+
+        .content-box {
+            background-color: rgba(0, 0, 0, 0.6);             padding: 30px;
+            margin: 20px auto; 
+            max-width: 800px; 
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .content-box h2 {
+            font-family: 'times new roman', cursive;
+            font-size: 2.5em;
+            margin-top: 0;
+            text-align: center;
+        }
+        
+        footer {
+            background-color: #FFD700; 
+            color: #333; 
+            padding: 20px;
+            text-align: center;
+            font-size: 0.9em;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.2); 
+            position: relative; 
+        }
+
+        .footer-content p {
+            margin: 0 0 10px 0;
+            line-height: 1.5;
+        }
+
+        .footer-content p a {
+            color: #333; 
+            text-decoration: none; 
+        }
+
+        .footer-content p a:hover {
+            text-decoration: underline; 
+                }
+
+        .footer-content .info-line i {
+            margin-right: 8px; 
+        }
+
+        .social-links {
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            color: #333;
+                        text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+            display: inline-flex; 
+            align-items: center;
+        }
+
+        .social-links a:hover {
+            color: #007bff; 
+        }
+
+        .social-links a i {
+            margin-right: 8px;
+        }
+
+        .founder-image-container {
+            position: absolute;
+            bottom: 20px;
+            right: 20px; 
+                    width: 80px; 
+            height: 80px;
+            overflow: hidden; 
+            border-radius: 50%; 
+            border: 2px solid #333;
+        }
+        .founder-image-container img {
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover;
+        }
+
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f0eb;
+            min-width: 180px; 
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+            list-style: none;
+            padding: 0;
+            padding-top: 10px; 
+            border: 1px solid #ddd; 
+        }
+
+        .dropdown-content li a {
+            color: rgb(163, 74, 74);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content li a:hover {
+            background-color: #e9e8e3; 
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        nav ul .dropdown > a {
+            display: flex;
+            align-items: center;
+        }
+
+        .vision-journey {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 20px;
+            text-align: center;
+            gap: 20px;
+        }
+
+        .journey-step {
+            width: 45%;
+        }
+
+        .journey-step img {
+            width: 100%;
+            border-radius: 8px;
+            border: 2px solid white;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .journey-step .description {
+            margin-top: 10px;
+            font-style: italic;
+            font-size: 0.9em;
+            height: 60%;
+        }
+        .founder-content {
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.7;
+            font-size: 1.1em;
+        }
+        .founder-content h3 {
+            font-family: 'times new roman', cursive;
+            font-size: 1.8em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: #FFD700;
+            border-bottom: 1px solid #FFD700;
+            padding-bottom: 5px;
+        }
+         .content-vision {
+            background-color: rgba(0, 0, 0, 0.6); 
+            padding: 20px;
+            margin: 8px ;
+            font-family: times ew roman ;
+             max-width: 300px; 
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+       
+        @media screen and (max-width: 768px) {
+            header {
+                height: auto;
+                flex-direction: column;
+                padding: 20px 10px;
+            }
+            .logo img {
+                height: 80px;
+                margin-bottom: 10px;
+            }
+            .company-name {
+                position: static;
+                transform: none;
+                font-size: 2em;
+                text-align: center;
+                margin: 10px 0;
+            }
+            nav {
+                position: static;
+                width: 100%;
+                text-align: center;
+            }
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+            .founder-image-container {
+                position: static;
+                margin: 20px auto;
+                display: block;
+            }
+            .vision-journey {
+                flex-direction: column;
+            }
+            .journey-step {
+                width: 100%;
+            }
+            .social-links a {
+                display: flex;
+                justify-content: center;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><img src="Mediator.png" alt="Mediator Dairy Group Logo"></div>
+        <h1 class="company-name">Mediator Dairy Group</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)"><i class="fa-solid fa-circle-info"></i> About Us <i class="fa-solid fa-caret-down" style="margin-left: 5px;"></i></a>
+                    <ul class="dropdown-content">
+
+                        <li><a href="history.html">The History</a></li>
+                        <li><a href="mission.html">Mission</a></li>
+                        <li><a href="vision.html">Vision</a></li>
+                        <li><a href="values.html">Values</a></li>
+                        <li><a href="founder.html">Founder background</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="industry_prototype.html"><i class="fa-solid fa-industry"></i> Industry Prototype <i class="fa-solid fa-caret-down" style="margin-left: 5px;"></i></a>
+                    <ul class="dropdown-content">
+
+                        <li><a href="overview.html">Overview</a></li>                        <li><a href="milkworkflow.html">Milk Flow Process</a></li>                        <li><a href="section.html">Sections of the Plant</a></li>
+                        <li><a href="#">Impact goal</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main></main>
+        <div class="content-box founder-content">
+            <h2>About Our Founder</h2>
+
+            <h3>My Belief and Motivation</h3>
+            <p>
+                After finishing my Advanced Level studies, I faced a challenge common in my rural area: there were no job opportunities, and many farmers were struggling because there was no proper market for their milk. Milk collection centers (MCCs) were far away, making it difficult for farmers to transport their milk. Sometimes, milkmen would collect only small quantities and pay farmers poorly, leaving them frustrated.
+            </p>
+            <p>
+                On the other side, MCC leaders and managers often complained about poor-quality milk. Farmers would bring diluted milk or milk from cows that were sick or on medication. This caused losses for the MCCs and affected the trust of buyers.
+            <h3>Problem Analysis</h3>
+            <p>
+                Both farmers and MCCs were losing out: farmers received low prices, and MCCs received poor-quality milk, affecting their sales and credibility. The main issues were:
+            </p>
+            <ul>
+                <li>Some milkmen diluted the milk to make more profit.</li>
+                <li>Cows were sometimes fed low-quality food, leading to issues like aflatoxin contamination.</li>
+                <li>Milk from cows under medical treatment was mixed with healthy milk.</li>
+            </ul>
+
+            <h3>My Solution</h3>
+            <p>
+                After analyzing the situation, I decided to take action. I approached the farmers to offer a deal: I would help collect their milk and take it to the market. I also visited MCCs to propose my service. The MCC president accepted my offer but emphasized the need for high-quality and high-quantity milk. To meet this requirement, I planned to:
+            </p>
+            <ul>
+                <li>Teach farmers proper cow care, from hygiene to feeding.</li>
+                <li>Educate them about the negative effects of delivering poor-quality milk, including financial loss and loss of credibility.</li>
+                <li>Monitor milk collection to ensure no dilution or mixing with unsafe milk.</li>
+            </ul>
+            <p>Through this approach, my goal was to create a win-win solution: farmers get better prices and access to markets, and MCCs receive high-quality milk that satisfies their clients.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p class="info-line"><strong>Founder Name:</strong> Didace Isingizwe</p>
+            <p class="info-line"><i class="fa-solid fa-phone"></i><a href="tel:+250798528403">0798528403</a> / <a href="tel:+250732005060">0732005060</a></p>
+            <div class="social-links"><a href="https://www.instagram.com/isingizwedidace921" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                <a href="https://wa.me/250798528403" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp 1"><i class="fa-brands fa-whatsapp"></i> 0798528403</a>
+                <a href="https://wa.me/250732005060" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp 2"><i class="fa-brands fa-whatsapp"></i> 0732005060</a>
+                <a href="https://www.facebook.com/DidaceIsingizwe" target="_blank" rel="noopener noreferrer" aria-label="Facebook Profile"><i class="fa-brands fa-facebook"></i> Facebook</a>
+                <a href="https://www.linkedin.com/in/DidaceIsingizwe" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            </div>
+            <div class="founder-image-container">
+                <img src="didace founder.jpg" alt="Didace Isingizwe Founder">
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
